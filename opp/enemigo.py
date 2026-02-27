@@ -1,16 +1,18 @@
-# Definición de una clase básica
-class Persona:
-    # El método __init__ es el constructor (se ejecuta al crear el objeto)
-    def __init__(self, nombre, edad):
-        self.nombre = nombre  # Atributo
-        self.edad = edad      # Atributo
+class Enemigo:
+    tipo_enemigo: str
+    puntos_energia: int = 10
+    ataque = 1
 
-    # Un método (función dentro de la clase)
-    def saludar(self):
-        print(f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años.")
+    def __init__(self, tipo_enemigo, puntos_energia=10, ataque=1):
+        self._tipo_enemigo = tipo_enemigo
+        self.puntos_energia = puntos_energia
+        self.ataque = ataque
 
-# Crear un objeto (instancia de la clase)
-usuario = Persona("Scarlett", 20)
+    def get_tipo_enemigo(self):
+        return self._tipo_enemigo
 
-# Llamar al método
-usuario.saludar()
+    def habla(self):
+        print(f"Yo soy {self._tipo_enemigo}. preparado para pelear!!")
+
+    def camina(self):
+        print(f"{self._tipo_enemigo} se mueve cerca de ti!!!")
